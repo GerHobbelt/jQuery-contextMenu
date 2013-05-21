@@ -1,0 +1,13 @@
+{
+    "name": "medialize/jquery-context-menu",
+    "description": "Context menu plugin for jQuery",
+    "keywords": ["jquery", "context"],
+    "homepage": "https://github.com/medialize/jQuery-contextMenu",
+    "type": "plugin",
+    "license": ["MIT", "GPL-3.0"],
+    "authors": [
+        { "name": "Rodney Rehm" },
+        { "name": "Christiaan Baartse" },
+        { "name": "Addy Osmani" }
+    ]
+}
