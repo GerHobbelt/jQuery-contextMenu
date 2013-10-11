@@ -1058,8 +1058,7 @@ var // currently active contextMenu trigger
                                     k.callbacks[key] = item.callback;
                                 }
                             });
-                            // FIXME: shouldn't this .html() be a .text()?
-                            $('<span></span>').html(item._name || item.name || "").appendTo($t);
+                            $('<span class="context-menu-label"></span>').text(item._name || item.name || "").appendTo($t);
                             break;
                     }
                     
@@ -1076,7 +1075,8 @@ var // currently active contextMenu trigger
                 
                     // add icons
                     if (item.icon) {
-                        $t.addClass("icon icon-" + item.icon);
+                        $("<i class=icon-" + item.icon + "></i>").prependTo($t);
+//                        $t.addClass("icon icon-" + item.icon);
                     }
                 }
                 
