@@ -212,9 +212,11 @@ var // currently active contextMenu trigger
         contextmenu: function(e) {
             var $this = $(this);
             
-            // disable actual context-menu
-            e.preventDefault();
-            e.stopImmediatePropagation();
+            // disable actual context-menu if we are using the right mouse button as the trigger
+            if (e.data.trigger == 'right') {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+            }
             
             // abort native-triggered events unless we're triggering on right click
             if (e.data.trigger != 'right' && e.originalEvent) {
@@ -250,7 +252,7 @@ var // currently active contextMenu trigger
                             (console.error || console.log)("No items specified to show in contextMenu");
                         }
                         
-                        throw new Error('No Items sepcified');
+                        throw new Error('No Items specified');
                     }
                     
                     // backreference for custom command type creation
@@ -1277,7 +1279,7 @@ $.contextMenu = function(operation, options) {
                 throw new Error('Cannot bind to selector "' + o.selector + '" as it contains a reserved className');
             }
             if (!o.build && (!o.items || $.isEmptyObject(o.items))) {
-                throw new Error('No Items sepcified');
+                throw new Error('No Items specified');
             }
             counter ++;
             o.ns = '.contextMenu' + counter;
